@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Conoce Alba Luxe Hotel, sus habitaciones, servicios y espacios para descansar.">
+    <title>Alba Luxe Hotel</title>
+
+    <!-- Estilos originales de la plantilla -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/date-time-picker-component.min.css">
+
+    <!-- Tipografías -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Old+Standard+TT:wght@400;700&display=swap" rel="stylesheet">
+
+    <script src="js/modernizr.js"></script>
+
+<style>
+/* Logo de texto: no depende de que exista main-logo.png */
+.navbar-brand{display:inline-flex;align-items:center;text-decoration:none;padding-top:0;padding-bottom:0}
+.alba-brand{display:inline-flex;flex-direction:column;align-items:center;color:#a58a5a;font-family:'Old Standard TT',serif;font-size:25px;line-height:1;letter-spacing:2px;white-space:nowrap}
+.alba-brand>span{color:#a58a5a}
+.alba-brand small{margin-top:5px;font-family:'IBM Plex Sans',sans-serif;font-size:9px;letter-spacing:5px}
+
+/* Habitaciones: detalles completos debajo de cada título */
+#our-rooms .product-card{height:auto!important;overflow:visible!important;background:#fff}
+#our-rooms .product-card .image-holder{width:100%;overflow:hidden}
+#our-rooms .product-card .image-holder img{display:block;width:100%;height:250px;object-fit:cover}
+#our-rooms .product-card .product-detail{position:relative!important;margin-top:14px!important;padding-bottom:10px}
+#our-rooms .product-card .product-detail h3{position:relative!important;margin:0 0 12px!important;padding:0!important;font-size:24px;line-height:1.3}
+#our-rooms .product-card .detail{position:static!important;display:block!important;width:100%!important;height:auto!important;padding:14px!important;margin:0!important;opacity:1!important;visibility:visible!important;transform:none!important;background:#f7f5f2;box-sizing:border-box}
+#our-rooms .product-card .detail table{width:100%;table-layout:fixed;border-collapse:collapse}
+#our-rooms .product-card .detail td{padding:6px 4px;vertical-align:top;white-space:normal!important;overflow-wrap:anywhere;line-height:1.5}
+#our-rooms .product-card .detail td:first-child{width:36%}
+#our-rooms .product-card .detail td:last-child{width:64%}
+#our-rooms .swiper-slide{height:auto;padding-bottom:10px}
+@media(max-width:767px){
+ #our-rooms .product-card .image-holder img{height:230px}
+ #our-rooms .product-card .detail{padding:12px!important}
+}
+</style>
+
+
+<style>
+#header .nav-link {
+    color: #a58a5a !important;
+}
+</style>
+
+</head>
+
+<body>
+
+    <!-- Ventana del video -->
+    <div class="modal fade" id="myModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="ratio ratio-16x9">
+                        <video id="video" controls playsinline
+       				style="width:100%; height:100%;"
+       				preload="metadata">
+			</video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navegación -->
+    <header class="site-header header-scrolled position-absolute text-black bg-light" id="header">
+        <nav class="navbar fixed-top navbar-expand-lg px-3 py-3" id="header-nav">
+            <div class="container-fluid">
+
+                <a class="navbar-brand" href="#intro">
+                    <span class="alba-brand" aria-label="Alba Luxe Hotel">ALBA <span>LUXE</span><small>HOTEL</small></span>
+                </a>
+
+                <button class="navbar-toggler d-flex d-lg-none order-3 p-2 shadow-none"
+                        type="button"
+                        data-bs-toggle="offcanvas"
+                        data-bs-target="#bdNavbar"
+                        aria-controls="bdNavbar"
+                        aria-label="Abrir menú">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="offcanvas offcanvas-end" id="bdNavbar" tabindex="-1">
+                    <div class="offcanvas-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+                    </div>
+
+                    <div class="offcanvas-body text-hover light-border">
+                        <ul class="navbar-nav justify-content-lg-center align-items-center flex-grow-1">
+
+                            <li class="nav-item pe-4">
+                                <a class="nav-link active" href="#intro">Inicio</a>
+                            </li>
+
+                            <li class="nav-item pe-4">
+                                <a class="nav-link" href="#about">Sobre nosotros</a>
+                            </li>
+
+                            <li class="nav-item pe-4">
+                                <a class="nav-link" href="#activities">Servicios</a>
+                            </li>
+
+                            <li class="nav-item pe-4">
+                                <a class="nav-link" href="#our-rooms">Habitaciones</a>
+                            </li>
+
+                            <li class="nav-item pe-4">
+                                <a class="nav-link" href="#newsletter">Suscripción</a>
+                            </li>
+
+                            <li class="nav-item pe-4">
+                                <a class="nav-link" href="#contact">Contacto</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- INICIO -->
+    <section id="intro">
+        <div class="image-holder position-relative">
+            <img src="images/inicio.jpg" alt="Vista del hotel" class="img-fluid">
+        </div>
+
+        <div class="container-lg">
+            <div class="banner-content position-absolute">
+
+                <h1 class="banner-title light display-1 text-capitalize py-3 lh-sm">
+                    ALBA LUXE HOTEL
+                </h1>
+
+                <p class="light fs-5 pb-4">
+                    Disfruta de una experiencia única, donde la comodidad, la elegancia y la tranquilidad se unen para hacer especial tu estadía.
+                </p>
+
+                <a class="btn btn-arrow btn-pill btn-medium btn-outline-light position-relative" href="#our-rooms">
+                    <span>Ver habitaciones →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOBRE NOSOTROS -->
+    <section class="padding-xlarge text-center position-relative overflow-hidden" id="about">
+        <div class="pattern-overlay pattern-right position-absolute">
+            <img src="images/leaf-pattern1.png" alt="">
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="detail mb-4">
+                    <h2 class="display-5 text-capitalize">Bienvenidos a Alba Luxe Hotel</h2>
+
+                    <p>
+                        Somos un hotel pensado para ofrecer comodidad, descanso y una experiencia
+                        agradable a cada visitante. Nuestro objetivo es que disfrutes de un ambiente
+                        tranquilo, instalaciones acogedoras y servicios que hagan especial tu estadía.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+<!-- SERVICIOS AUTOMÁTICOS DE ALBA LUXE HOTEL -->
+<style>
+    #activities .servicios-foto {
+        position: relative;
+        min-height: 450px;
+        height: 100%;
+        overflow: hidden;
+        background: #171717;
+    }
+
+    #activities .servicios-foto img {
+        width: 100%;
+        height: 100%;
+        min-height: 450px;
+        object-fit: cover;
+        transition: opacity 0.4s ease;
+    }
+
+    #activities .servicios-contenido {
+        padding: 55px 45px;
+        width: 100%;
+    }
+
+    #activities .servicios-etiqueta {
+        color: #a58a5a;
+        letter-spacing: 3px;
+        font-size: 12px;
+        text-transform: uppercase;
+    }
+
+    #activities .servicios-titulo {
+        font-size: clamp(28px, 3vw, 42px);
+        margin: 15px 0;
+    }
+
+    #activities .servicios-descripcion {
+        line-height: 1.8;
+        min-height: 75px;
+    }
+
+    #activities .servicios-puntos {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 25px;
+    }
+
+    #activities .servicio-punto {
+        border: 1px solid #b7a27f;
+        background: transparent;
+        color: #29251f;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    #activities .servicio-punto.activo,
+    #activities .servicio-punto:hover {
+        background: #29251f;
+        color: white;
+        border-color: #29251f;
+    }
+
+    #activities .servicios-contador {
+        color: #a58a5a;
+        font-size: 13px;
+        letter-spacing: 2px;
+        margin-top: 20px;
+    }
+
+    @media (max-width: 767px) {
+        #activities .servicios-foto,
+        #activities .servicios-foto img {
+            min-height: 300px;
+        }
+
+        #activities .servicios-contenido {
+            padding: 35px 25px;
+        }
+    }
+</style>
+
+<section class="overflow-hidden" id="activities">
+    <div class="container-fluid p-0">
+        <div class="row g-0">
+
+            <!-- Imagen que cambia automáticamente -->
+            <div class="col-lg-6 col-md-12">
+                <div class="servicios-foto">
+                    <img
+                        id="imagen-servicio"
+                        src="images/hotel.jpg"
+                        alt="Piscina de Alba Luxe Hotel">
+                </div>
+            </div>
+
+            <!-- Información del servicio -->
+            <div class="col-lg-6 col-md-12 bg-gray-100 d-flex align-items-center justify-content-center">
+                <div class="servicios-contenido">
+
+                    <span class="servicios-etiqueta">
+                        Experiencias exclusivas
+                    </span>
+
+                    <h2 class="servicios-titulo">
+                        Servicios que ofrecemos
+                    </h2>
+
+                    <p class="servicios-descripcion" id="descripcion-servicio">
+                        Relájate en nuestra piscina y disfruta de un ambiente pensado para tu comodidad.
+                    </p>
+
+                    <h3 id="nombre-servicio" class="fs-3">
+                        Piscina
+                    </h3>
+
+                    <div class="servicios-contador" id="contador-servicio">
+                        01 / 04
+                    </div>
+
+                    <!-- Botones para elegir un servicio -->
+                    <div class="servicios-puntos" aria-label="Seleccionar servicio">
+                        <button type="button" class="servicio-punto activo"
+                            data-servicio="0" aria-label="Piscina" aria-pressed="true">1</button>
+
+                        <button type="button" class="servicio-punto"
+                            data-servicio="1" aria-label="Bar" aria-pressed="false">2</button>
+
+                        <button type="button" class="servicio-punto"
+                            data-servicio="2" aria-label="Restaurante" aria-pressed="false">3</button>
+
+                        <button type="button" class="servicio-punto"
+                            data-servicio="3" aria-label="Spa" aria-pressed="false">4</button>
+
+                    </div>
+
+                    <p class="mt-3 mb-0">
+                        <small>Descubre nuestros espacios y servicios.</small>
+                    </p>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const servicios = [
+        {
+            nombre: "Piscina",
+            descripcion: "Relájate en nuestra piscina y disfruta de un ambiente pensado para tu comodidad.",
+            imagen: "images/piscina.jpg",
+            alt: "Piscina de Alba Luxe Hotel"
+        },
+        {
+            nombre: "Bar",
+            descripcion: "Disfruta de un momento especial con bebidas y un ambiente sofisticado.",
+            imagen: "images/bar.jpg",
+            alt: "Espacio del hotel"
+        },
+        {
+            nombre: "Restaurante",
+            descripcion: "Descubre una experiencia gastronómica en un entorno elegante y acogedor.",
+            imagen: "images/restaurante.jpg",
+            alt: "Interior de Alba Luxe Hotel"
+        },
+        {
+            nombre: "Spa",
+            descripcion: "Dedica tiempo a tu bienestar y cuidado con una experiencia relajante.",
+            imagen: "images/spa.jpg",
+            alt: "Espacio de descanso"
+        }
+
+    ];
+
+    const imagen = document.getElementById("imagen-servicio");
+    const nombre = document.getElementById("nombre-servicio");
+    const descripcion = document.getElementById("descripcion-servicio");
+    const contador = document.getElementById("contador-servicio");
+    const botones = document.querySelectorAll("#activities .servicio-punto");
+
+    if (!imagen || !nombre || !descripcion || !contador || botones.length === 0) {
+        return;
+    }
+
+    let actual = 0;
+    let temporizador;
+
+    function mostrarServicio(indice) {
+        actual = indice;
+        const servicio = servicios[actual];
+
+        imagen.style.opacity = "0";
+
+        window.setTimeout(function () {
+            imagen.src = servicio.imagen;
+            imagen.alt = servicio.alt;
+            nombre.textContent = servicio.nombre;
+            descripcion.textContent = servicio.descripcion;
+            contador.textContent =
+                String(actual + 1).padStart(2, "0") + " / " +
+                String(servicios.length).padStart(2, "0");
+
+            imagen.style.opacity = "1";
+        }, 200);
+
+        botones.forEach(function (boton, posicion) {
+            boton.classList.toggle("activo", posicion === actual);
+            boton.setAttribute("aria-pressed", posicion === actual ? "true" : "false");
+        });
+    }
+
+    function iniciarAutomatico() {
+        window.clearInterval(temporizador);
+
+        temporizador = window.setInterval(function () {
+            const siguiente = (actual + 1) % servicios.length;
+            mostrarServicio(siguiente);
+        }, 4000);
+    }
+
+    botones.forEach(function (boton) {
+        boton.addEventListener("click", function () {
+            mostrarServicio(Number(boton.dataset.servicio));
+            iniciarAutomatico();
+        });
+    });
+
+    mostrarServicio(0);
+    iniciarAutomatico();
+
+});
+</script>
+<!-- FIN DE SERVICIOS AUTOMÁTICOS -->
+
+</section>
+
+    <!-- LOGROS Y COMPROMISO -->
+    <section class="padding-large text-center" id="logros">
+        <div class="container">
+
+            <div class="display-header mb-5">
+                <h2 class="display-5 text-capitalize">Nuestro compromiso</h2>
+                <p>
+                    Trabajamos para que cada huésped disfrute una experiencia cómoda y memorable.
+                </p>
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-4 mb-4">
+                    <h3 class="display-5">Atención</h3>
+                    <p>Nos esforzamos por brindar un trato amable y atento a nuestros visitantes.</p>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <h3 class="display-5">Comodidad</h3>
+                    <p>Buscamos que nuestros espacios sean acogedores y agradables para descansar.</p>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <h3 class="display-5">Bienestar</h3>
+                    <p>Queremos que cada persona disfrute su estadía y se lleve una buena experiencia.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- HABITACIONES: TODAS EN ESTA MISMA PÁGINA -->
+    <section class="position-relative padding-large pt-0" id="our-rooms">
+        <div class="container">
+
+            <div class="display-header pb-3">
+                <h2 class="display-5 text-dark fw-normal">Nuestras habitaciones</h2>
+                <p>Conoce algunas de las habitaciones disponibles para tu descanso.</p>
+            </div>
+
+            <div class="swiper product-swiper">
+                <div class="swiper-wrapper">
+
+                    <!-- Habitación clásica -->
+                    <div class="swiper-slide">
+                        <div class="product-card position-relative overflow-hidden">
+                            <div class="image-holder">
+                                <img src="images/habitacion1.jpg" alt="Habitación clásica" class="img-fluid">
+                            </div>
+
+                            <div class="product-detail mt-3">
+                                <h3>Habitación clásica</h3>
+
+                                <div class="detail position-absolute">
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <td class="pe-2"><strong>Precio:</strong></td>
+                                                <td><strong>5000 lps</strong> por noche</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="pe-2"><strong>Tamaño:</strong></td>
+                                                <td>Espacio cómodo</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="pe-2"><strong>Capacidad:</strong></td>
+                                                <td>Máximo 2 personas</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="pe-2"><strong>Cama:</strong></td>
+                                                <td>Dos camas unipersonal</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="pe-2"><strong>Servicios:</strong></td>
+                                                <td>Wi-Fi, televisión, baño privado, aire acondicionado</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Habitación deluxe -->
+                    <div class="swiper-slide">
+                        <div class="product-card position-relative overflow-hidden">
+                            <div class="image-holder">
+                                <img src="images/habitacion2.jpg" alt="Habitación deluxe" class="img-fluid">
+                            </div>
+
+                            <div class="product-detail mt-3">
+                                <h3>Habitación deluxe</h3>
+
+                                <div class="detail position-absolute">
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <td class="pe-2"><strong>Precio:</strong></td>
+                                                <td><strong>6200 lps</strong> por noche</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="pe-2"><strong>Tamaño:</strong></td>
+                                                <td>Espacio amplio</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="pe-2"><strong>Capacidad:</strong></td>
+                                                <td>Máximo 2 personas</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="pe-2"><strong>Cama:</strong></td>
+                                                <td>Cama king</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="pe-2"><strong>Servicios:</strong></td>
+                                                <td>Wi-Fi, televisión, baño privado, aire acondicionado, vista a la piscina</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Habitación King -->
+                    <div class="swiper-slide">
+                        <div class="product-card position-relative overflow-hidden">
+                            <div class="image-holder">
+                                <img src="images/habitacion3.jpg" alt="Habitación king" class="img-fluid">
+                            </div>
+
+                            <div class="product-detail mt-3">
+                                <h3>Habitación king</h3>
+
+                                <div class="detail position-absolute">
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <td class="pe-2"><strong>Precio:</strong></td>
+                                                <td><strong>7500 lps</strong> por noche</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="pe-2"><strong>Tamaño:</strong></td>
+                                                <td>Espacio amplio</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="pe-2"><strong>Capacidad:</strong></td>
+                                                <td>Máximo 3 personas</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="pe-2"><strong>Cama:</strong></td>
+                                                <td>Cama king</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="pe-2"><strong>Servicios:</strong></td>
+                                                <td>Wi-Fi, televisión, baño privado, aire acondicionado, vista a la piscina</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    
+<!-- VIDEO -->
+<section class="position-relative overflow-hidden" id="video-player">
+    <div class="image-holder position-relative">
+        <video
+            id="video-portada"
+            class="img-fluid w-100"
+            src="images/video.mp4"
+            preload="metadata"
+            muted
+            playsinline
+            aria-label="Video de Alba Luxe Hotel"
+            style="display:block; width:100%; height:auto; cursor:pointer;">
+        </video>
+
+        <button
+            type="button"
+            id="boton-video"
+            class="play-btn position-absolute d-flex justify-content-center align-items-center"
+            aria-label="Reproducir video">
+            <span style="font-size:70px; color:white;">▶</span>
+        </button>
+    </div>
+</section>
+
+    <!-- SUSCRIPCIÓN -->
+    <section class="padding-large" id="newsletter">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+
+                    <h2 class="display-5">Suscríbete a nuestras novedades</h2>
+
+                    <p>
+                        Recibe noticias, ofertas y promociones especiales de nuestro hotel.
+                    </p>
+
+                    <form id="newsletter-form" class="mt-4">
+                        <div class="d-flex flex-wrap justify-content-center gap-2">
+                            <input
+                                type="email"
+                                name="email"
+                                class="form-control"
+                                style="max-width: 420px;"
+                                placeholder="Escribe tu correo electrónico"
+                                aria-label="Correo electrónico"
+                                required>
+
+                            <button type="submit" class="btn btn-dark btn-pill btn-medium">
+                                Suscribirme
+                            </button>
+                        </div>
+                    </form>
+
+                    <p id="newsletter-message" class="mt-3" aria-live="polite"></p>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="overflow-hidden" id="contact">
+        <div class="container-fluid p-0">
+            <div class="row">
+
+                <div class="col-lg-6 col-md-12 bg-gray-100 d-flex justify-content-center align-items-center">
+                    <div class="contact-detail p-4">
+
+                        <h2>Contáctanos</h2>
+
+                        <p>
+                            Estamos aquí para ayudarte. Escríbenos para obtener más información
+                            sobre nuestro hotel y sus servicios.
+                        </p>
+
+                        <ul class="list-unstyled">
+                            <li><strong>Dirección:</strong> Barrio Río de Piedras, Avenida 215, San Pedro Sula, Cortés, Honduras.</li>
+                            <li><strong>Teléfono:</strong> +504 9655-7004</li>
+                            <li><strong>Correo electrónico:</strong> albaluxehotel@gmail.com</li>
+                        </ul>
+
+                        <form id="contact-form" class="contact-form my-5">
+                            <input
+                                class="form-control mb-3"
+                                name="nombre"
+                                type="text"
+                                placeholder="Escribe tu nombre completo"
+                                aria-label="Nombre completo"
+                                required>
+
+                            <input
+                                class="form-control mb-3"
+                                name="correo"
+                                type="email"
+                                placeholder="Escribe tu correo electrónico"
+                                aria-label="Correo electrónico"
+                                required>
+
+                            <textarea
+                                class="form-control mb-3"
+                                name="mensaje"
+                                rows="4"
+                                placeholder="Escribe tu mensaje"
+                                aria-label="Mensaje"
+                                required></textarea>
+
+                            <button type="submit" class="btn btn-dark btn-pill btn-medium">
+                                Enviar mensaje
+                            </button>
+
+                            <p id="contact-message" class="mt-3" aria-live="polite"></p>
+                        </form>
+
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-12 g-0">
+                    <div class="image-holder">
+                        <img src="images/atras.jpg" alt="Interior del hotel" class="img-fluid">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="overflow-hidden padding-large pb-0 bg-gray-100" id="footer">
+        <div class="container">
+
+            <div class="row d-flex flex-wrap justify-content-between">
+
+                <div class="col-lg-4 col-md-6 pb-3">
+                    <div class="footer-menu">
+                        <h5 class="widget-title pb-2 fw-semibold fs-2">Sobre nosotros</h5>
+                        <p>
+                            En Alba Luxe Hotel encontrarás un ambiente agradable, atención cercana
+                            y espacios para descansar.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 pb-3">
+                    <div class="footer-menu">
+                        <h5 class="widget-title pb-2 fw-semibold fs-2">Enlaces rápidos</h5>
+                        <ul class="menu-list list-unstyled">
+                            <li class="pb-2"><a href="#about">Sobre nosotros</a></li>
+                            <li class="pb-2"><a href="#activities">Servicios</a></li>
+                            <li class="pb-2"><a href="#our-rooms">Habitaciones</a></li>
+                            <li class="pb-2"><a href="#newsletter">Suscripción</a></li>
+                            <li class="pb-2"><a href="#contact">Contacto</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 pb-3">
+                    <div class="footer-menu">
+                        <h5 class="widget-title pb-2 fw-semibold fs-2">Contacto</h5>
+                        <p>Barrio Río de Piedras, Avenida 215, San Pedro Sula, Cortés, Honduras</p>
+                        <p>+504 9566-7004 / albaluxehotel@gmail.com.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="border-top pt-3 text-center">
+                <p>© 2026 Alba Luxe Hotel. Todos los derechos reservados.</p>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- Scripts necesarios para la plantilla -->
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/script.js"></script>
+
+    <!-- Funcionamiento básico de los formularios de demostración -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const newsletterForm = document.getElementById("newsletter-form");
+            const newsletterMessage = document.getElementById("newsletter-message");
+
+            if (newsletterForm) {
+                newsletterForm.addEventListener("submit", function (event) {
+                    event.preventDefault();
+
+                    newsletterMessage.textContent =
+                        "¡Gracias por tu interés! Este formulario es una demostración y todavía no guarda los correos.";
+
+                    newsletterForm.reset();
+                });
+            }
+
+            const contactForm = document.getElementById("contact-form");
+            const contactMessage = document.getElementById("contact-message");
+
+            if (contactForm) {
+                contactForm.addEventListener("submit", function (event) {
+                    event.preventDefault();
+
+                    contactMessage.textContent =
+                        "Gracias por escribirnos.";
+
+                    contactForm.reset();
+                });
+            }
+
+const portadaVideo = document.getElementById("video-portada");
+const botonVideo = document.getElementById("boton-video");
+
+if (portadaVideo && botonVideo) {
+    // Muestra un fotograma del propio video como portada.
+    portadaVideo.addEventListener("loadedmetadata", function () {
+        if (portadaVideo.duration > 0) {
+            portadaVideo.currentTime = Math.min(0.1, portadaVideo.duration / 2);
+        }
+    }, { once: true });
+
+    portadaVideo.addEventListener("seeked", function () {
+        portadaVideo.pause();
+    }, { once: true });
+
+    function reproducirVideo() {
+        portadaVideo.controls = true;
+        portadaVideo.muted = false;
+
+        const resultado = portadaVideo.play();
+        if (resultado && typeof resultado.catch === "function") {
+            resultado.catch(function () {
+                // Si el navegador bloquea la reproducción, se muestran los controles.
+                portadaVideo.controls = true;
+            });
+        }
+
+        botonVideo.style.display = "none";
+    }
+
+    botonVideo.addEventListener("click", reproducirVideo);
+    portadaVideo.addEventListener("click", function () {
+        if (portadaVideo.paused) {
+            reproducirVideo();
+        }
+    });
+
+    portadaVideo.addEventListener("ended", function () {
+        botonVideo.style.display = "flex";
+        portadaVideo.controls = false;
+        portadaVideo.currentTime = 0.1;
+    });
+}
+
+        });
+    </script>
+
+</body>
+</html>
